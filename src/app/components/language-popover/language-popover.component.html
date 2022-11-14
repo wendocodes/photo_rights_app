@@ -1,0 +1,7 @@
+<ion-list>
+  <ion-item button *ngFor="let lng of languageService.languages" (click)="select(lng.value)" detail="false">
+    <img [src]="lng.img" slot="start">
+    <ion-label>{{ lng.text | translate }}</ion-label>
+    <ion-icon slot="end" name="checkmark" *ngIf="lng.text === languageService.currentLanguage.text" ></ion-icon>
+  </ion-item>
+</ion-list>

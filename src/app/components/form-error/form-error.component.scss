@@ -1,0 +1,14 @@
+.form-error {
+    color: var(--ion-color-danger);
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    line-height: 1em;
+    margin: 8px 18px;
+
+    ion-icon {
+        flex: 16px 0 0;
+        margin-right: 4px;
+    }
+}
