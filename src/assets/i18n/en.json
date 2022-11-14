@@ -1,0 +1,127 @@
+{  
+    "home": "Home",
+    "gallery": "Gallery",
+    "profile": "Profile",
+    "publicationRequests": "Publication Requests",
+    "login": "Login",
+    "clientLogin": "Kindergarten login",
+    "settings": "Settings",
+    "menu": "Menu",
+    "English": "English",
+    "German": "German",
+    "defaultSpinner": "Please wait ...",
+    "uploadingSpinner": "Uploading ...",
+
+    "LOGIN" : {
+        "form" : "Login",
+        "signin": "Sign in",
+        "account": "Create account",
+        "noaccount": "Don't have an account?"
+    },
+    "FORGOTPASSWORD" : {
+        "submit": "Submit",
+        "forgotPasswordHeading": "Forgot Password"
+    },
+    "REGISTER" : {
+        "form" : "Register",
+        "new" : "Create Account",
+        "register": "Create User Profile",
+        "login": "to login",
+        "update": "submit"
+    },
+    "CLIENT" : {
+        "enterPIN" : "Please enter your PIN to be connected to the kindergarten.",
+        "PINbutton": "Enter pin",
+        "clientLogout": "Logout",
+        "clientWelcome": "Welcome,"
+    },
+    "AUTH" : {
+        "usernamePlaceholder": "Username",
+        "usernameRequired": "Username is required.",
+        "usernameLength": "Please use a name with at least 6 and at most 32 characters.",
+
+        "passwordPlaceholder": "Password",
+        "passwordRequired": "Password is required.",
+        "passwordLengthError":"Password must be at least 6 and at most 12 characters in length.",
+        "passwordSpecialError":"Password must contain 1 or more special characters.",
+        "passwordUpperError":"Password must contain 1 or more uppercase characters.",
+        "passwordLowerError":"Password must contain 1 or more lowercase characters.",
+        "passwordDigitError":"Password must contain 1 or more digits.",
+
+        "passwordRepeatPlaceholder": "Repeat Password",
+        "passwordRepeatRequired": "Repeat password is required.",
+        "passwordmismatch": "Passwords must match.",
+        "forgotpassword": "Forgot Password.",
+        "pwResetMessage": "Password reset link has been sent to this email address. Not yet received? Check the spam folder!",
+
+        "emailPlaceholder": "Email",
+        "invalidEmail": "Please enter a valid email.",
+        "emailRequired": "Email is required.",
+
+        "birthdatePlaceholder": "Birthdate",
+        "birthdateRequired": "Birthdate is required.",
+
+        "firstNamePlaceholder": "First name",
+        "firstNameRequired": "First name is required.",
+        "firstNameLength": "First name must be 64 characters at most.",
+        "invalidFirstname": "Please enter a valid first name.",
+
+        "lastNamePlaceholder": "Last name",
+        "lastNameRequired": "Last name is required.",
+        "lastNameLength": "Last name must be 64 characters at most.",
+        "invalidLastname": "Please enter a valid last name.",
+        "matches": "PIN verified successfully!"
+    },
+    "ERROR": {
+        "invalidCredentials": "You have entered an incorrect username or password",
+        "serverUnreachable":"The Klix network is currently unavailable",
+        "notRegistered": "Email Id not registered!",
+        "existingUser": "A user with this username already exists.",
+        "existingEmail": "A user with this email already exists.",
+        "unprocessableEntityMsg": "The new account could not be created.",
+        "connectionTimeout": "Connection timeout error",
+        "authFailed": "Authentication failed",
+        "idPictureError": "There is more than one face recognized or there is an error in recognition of the photo.",
+        "noArray": "not exactly four coordinates found",
+        "notAFace": "No face found. Your reference image must contain your face.",
+        "unsupportedformat": "File format not supported. Allowed formats are: .jpg, .png, .jpeg",
+        "wrongpin": "Wrong PIN!"
+    },
+    "SETTINGS" : {
+        "mode": " Dark Mode",
+        "language": "Language"
+    },
+    "HOME" : {
+        "greeting" : "Picture Management",
+        "networkstatus": "Network status",
+        "connected": "connected",
+        "disconnected": "nicht verbunden",
+        "networktype": "Network Type",
+        "status":   "User",
+        "loggedin": "authenticated",
+        "invaliduser": "not authenticated"
+    },
+    "GALLERY" : {
+        "selectphoto": "Select Photos"
+    },
+    "PROFILE" : {
+        "noPerson": "No person found.",
+        "loggedOut": "You are logged out.",
+        "usePicture": "Upload",
+        "change": "Change profile photo",
+        "personalData": "My Personal Details",
+        "firstname": "First Name",
+        "lastname": "Last Name",
+        "email": "Email",
+        "birthdate": "Date of Birth", 
+        "childData": "My Child"
+    },
+    "PHOTO_PROMPT": {
+        "takePicture": "Take a picture",
+        "fromGallery": "From gallery",
+        "cancel": "cancel"
+     },
+    "PUB_REQUEST": {
+        "noRequest": "No request found yet."
+    }
+}

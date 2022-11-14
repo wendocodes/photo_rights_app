@@ -1,0 +1,46 @@
+/*
+Use with angular's reactive forms like: (see register/login pages)
+
+
+<form [formGroup]="..." (ngSubmit)="f.form.valid && submit()" #f="ngForm" novalidate padding>
+
+  <!-- form field -->
+  <ion-item lines="none">
+    <ion-label position="floating">...<ion-text class="mark-required">*</ion-text></ion-label>
+
+    <ion-input
+      ...
+      formControlName="..."
+      [class.input-invalid]="statement of true/false for additional cases the reactive form validators can't handle, e.g. errors from Backend after submit">
+    </ion-input>
+  </ion-item>
+  <klix-form-error ...></klix-form-error>
+
+  <!-- submit button -->
+  <ion-button
+    [disabled]="f.status === 'INVALID'"
+    type="submit"
+    class="submit-btn">...</ion-button>
+</form>
+*/
+
+form {
+  .mark-required { color: var(--ion-color-secondary); }
+  
+  & > * {
+   border-bottom: 1px solid var(--klix-form-line-color, #ddd);
+    margin: 8px 0;
+  }
+  ion-input.ng-invalid.ng-touched, .invalid-input.ng-touched {
+    border: 3px solid var(--highlight-color-invalid) !important;
+    margin: 16px 0 0;
+  }
+  
+  // if not set, eye icon will not be on the far right, because its parent element is not long enough
+  klix-form-password { width: 100%; }
+  
+  .submit-btn {
+    margin: 3em 0 1em;
+    border: none;
+  }
+}

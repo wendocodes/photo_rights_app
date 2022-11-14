@@ -1,0 +1,127 @@
+{
+   "home": "Startseite",
+   "gallery": "Bildergalerie",
+   "profile": "Profil",
+   "publicationRequests": "Bildanfragen",
+   "login": "Anmelden",
+   "clientLogin": "Kindergarten-Anmeldung",
+   "settings": "Einstellungen",
+   "menu": "Menü", 
+   "English": "Englisch",
+   "German": "Deutsch",
+   "defaultSpinner": "Bitte warten ...",
+   "uploadingSpinner": "Lädt hoch ...",
+
+   "LOGIN" : {
+      "form" : "Anmelden",
+      "signin": "anmelden",
+      "account": "neuen Account erstellen",
+      "noaccount": "Sie haben kein Konto?"
+   },
+   "FORGOTPASSWORD" : {
+      "submit": "zusenden",
+      "forgotPasswordHeading": "Passwort vergessen"
+  },
+   "REGISTER" : {
+      "form" : "Neuer Account erstellen",
+      "new" : "Konto anlegen",
+      "register": "registrieren",
+      "login": "Zum Login",
+      "update": "abschicken"
+   },
+   "CLIENT" : {
+      "enterPIN" : "Bitte geben Sie Ihren PIN ein, um mit der Kindergarten verbunden zu werden.",
+      "PINbutton": "Pin eingeben",
+      "clientLogout": "ausloggen",
+      "clientWelcome": "willkommen,"
+  },
+   "AUTH" : {
+      "usernamePlaceholder": "Benutzername",
+      "usernameRequired": "Benutzername fehlt.",
+      "usernameLength": "Bitte verwenden Sie einen Namen mit mindestens 6 und maximal 32 Zeichen.",
+
+      "passwordPlaceholder": "Passwort",
+      "passwordRequired": "Passwort fehlt.",
+      "passwordLengthError":" Das Passwort muss mindestens 6 und maximal 12 Zeichen enthalten.",
+      "passwordSpecialError":"Das Passwort muss 1 oder mehrere Sonderzeichen enthalten.",
+      "passwordUpperError":"Das Passwort muss 1 oder mehrere Großbuchstaben enthalten.",
+      "passwordLowerError":"Das Passwort muss 1 oder mehrere Kleinbuchstaben enthalten.",
+      "passwordDigitError":"Das Passwort muss 1 oder mehrere Ziffern enthalten.",
+
+      "passwordRepeatPlaceholder": "Passwort Wiederholung",
+		"passwordRepeatRequired": "Passwortwiederholung fehlt.",
+      "passwordmismatch": "Passwörter müssen übereinstimmen.",
+      "forgotpassword": "Passwort vergessen.",
+      "pwResetMessage": "Der Link zum Zurücksetzen des Passworts wurde an diese E-Mail-Adresse gesendet. Noch nicht erhalten? Prüfen Sie den Spam-Ordner!",
+
+      "emailPlaceholder": "Email",
+      "emailRequired": "Email fehlt.",
+      "invalidEmail": "Bitte geben Sie eine gültige E-Mail ein.",
+
+      "birthdatePlaceholder": "Geburtsdatum",
+      "birthdateRequired": "Geburtsdatum fehlt.",
+
+      "firstNamePlaceholder": "Vorname",
+      "firstNameRequired": "Vorname fehlt.",
+      "firstNameLength": "Vorname darf maximal 64 Zeichen enthalten.",
+      "invalidFirstname": "Bitte geben Sie einen gültigen Vornamen ein.",
+
+      "lastNamePlaceholder": "Nachname",
+      "lastNameRequired": "Nachname fehlt.",
+      "lastNameLength": "Nachname darf maximal 64 Zeichen enthalten.",
+      "invalidLastname": "Bitte geben Sie einen gültigen Nachnamen ein.",
+      "matches": "PIN erfolgreich verifiziert!"
+   },
+   "ERROR": {
+      "invalidCredentials": "Sie haben einen falschen Benutzernamen oder ein falsches Passwort eingegeben",
+      "serverUnreachable":"Das Klix-Netzwerk ist derzeit nicht erreichbar",
+      "notRegistered": "Email Id nicht registriert!",
+      "existingUser": "Es existiert bereits ein Benutzer mit diesem Benutzernamen.",
+      "existingEmail": "Ein Benutzer mit dieser E-Mail existiert bereits.",
+      "unprocessableEntityMsg": "Der neue Account konnte nicht angelegt werden",
+      "connectionTimeout": "Verbindungstimeout",
+      "authFailed": "Authentifizierung ist fehlgeschlagen",
+      "idPictureError": "Es wird mehr als ein Gesicht erkannt oder es liegt ein Fehler bei der Erkennung des Fotos vor.",
+      "noArray": "nicht genau vier Koordinaten gefunden.",
+      "notAFace": "Kein Gesicht gefunden. Ihr Referenzbild muss ihr Gesicht enthalten.",
+      "unsupportedformat": "Das Dateiformat wird nicht unterstützt. Erlaubte Dateiformate sind: .jpg, .png, .jpeg",
+      "wrongpin": "falsches PIN!"
+   },
+   "SETTINGS" : {
+      "mode": "Nachtmodus",
+      "language": "Sprache"
+   },
+   "HOME" : {
+      "greeting" : "Bildverwaltung",
+      "networkstatus": "Netzwerkstatus",
+      "connected": "verbunden",
+      "disconnected": "nicht verbunden",
+      "networktype": "Netzwerktyp",
+      "status":   "Benutzer",
+      "loggedin": "authentifiziert",
+      "invaliduser": "nicht authentifiziert"
+   },
+   "GALLERY" : {
+      "selectphoto": "Bilder auswählen"
+   },
+   "PROFILE" : {
+      "noPerson": "Keine Person gefunden.",
+      "loggedOut": "Sie sind nicht eingeloggt.",
+      "usePicture": "hochladen",
+      "change": "Profilfoto ändern",
+      "personalData": "Meine persönlichen Daten",
+      "firstname": "Vorname",
+      "lastname": "Nachname",
+      "email": "Email",
+      "birthdate": "Geburtsdatum",
+      "childData": "Mein Kind"
+   },
+   "PHOTO_PROMPT": {
+      "takePicture": "Photo machen",
+      "fromGallery": "Aus der Gallerie",
+      "cancel": "Zurück"
+   },
+   "PUB_REQUEST": {
+      "noRequest": "Noch keine Anfragen gefunden."
+   }
+}
