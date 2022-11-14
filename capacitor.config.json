@@ -1,0 +1,6 @@
+{
+  "appId": "com.klix20app.klix",
+  "appName": "klix",
+  "webDir": "www",
+  "npmClient": "npm"
+}

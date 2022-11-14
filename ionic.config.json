@@ -1,0 +1,7 @@
+{
+  "name": "klix",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
