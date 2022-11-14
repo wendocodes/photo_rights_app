@@ -1,0 +1,35 @@
+// div for profile photo from backend
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 15px;
+  }
+
+  // div for profile image
+  .profile-picture {
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+  }
+  // profile image
+  .profile-picture ion-img {
+    height: 150px; 
+    object-fit:fill;
+    border: 2px solid rgba(0, 0, 0, 0.25);
+   }
+ // div for info header
+  .profile-info {
+    font-size: x-large !important;
+    font-weight: bold !important;
+  }
+ // button for IdPicture upload
+  .upload-pic {
+    margin:10px; 
+  }
+ // text on upload button
+  .upload-pic span{
+    margin-left:10px;
+    font-size: 14px;
+  }

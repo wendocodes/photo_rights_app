@@ -1,0 +1,48 @@
+// add some styling to container div
+.content {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  // add some styling to logo img
+  .logo {
+    width: 150px;
+    height: auto;
+  }
+
+  // add some styling to logo header
+  .heading {
+    color: #0b9c30;
+    font-weight: 800;
+    font-size: 30px;
+  }
+}
+
+// add some styling to network ion-card
+.network {
+  width: 80%;
+  max-width: 70ch;
+  margin-top: 15vh;
+}
+
+// // add some styling to ion-toggle
+// ion-toggle {
+//   width: 45px;
+//   --handle-height: 80%;
+//   --handle-spacing: 4px;
+//   height: 25px;
+//   --background: grey;
+//   --background-checked: #4287f5;
+
+//   --handle-background: #d9e2eb;
+//   --handle-background-checked: white;
+// }
+
+// .welcome-card ion-img {
+//   max-height: 35vh;
+//   overflow: hidden;
+// }

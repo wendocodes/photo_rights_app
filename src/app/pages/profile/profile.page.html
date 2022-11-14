@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{'profile' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="--padding-bottom: 4em;">
+  <div *ngIf="person">
+   <!--opens the camera or the gallery, allowing user to upload new photo-->
+    <div *ngIf="idPicture" class="container">  
+    <ion-item lines="none" class="profile-item">
+      <div class="profile-picture" (click)="takePicture()">
+        <ion-img [(src)]="lastPhoto"></ion-img>
+      </div>
+    </ion-item>
+    <div style="text-align: center; color: rgb(40, 135, 218);">
+      <span>{{ 'PROFILE.change' | translate }}</span>
+    </div>
+    
+      <!--the error message only shows if the four conditions are met-->
+      <div *ngIf="!idPicture.isUploaded && idPicture.uploadFailed && (idPicture.showError || showError)" style=" text-align: center; color: red;padding: 10px;border:1px solid red">
+        <span *ngIf="idPicture.errorMessage=='2'">{{ 'ERROR.idPictureError' | translate}}</span>
+        <span *ngIf="idPicture.errorMessage=='1'">{{ 'ERROR.notAFace' | translate}}</span>
+        <span *ngIf="idPicture.errorMessage=='3'">{{ 'ERROR.unsupportedformat' | translate}}</span>
+      </div>
+      <div *ngIf="(idPicture.isUploaded==false || idPicture.uploadFailed==false || (idPicture.isUploaded==null && idPicture.uploadFailed==null)|| !idPicture.isSent==null ) && photoselected" style="display: flex; flex-direction: row;" class="ion-align-items-center ion-padding">
+          <div>
+            <ion-img [(src)]="idPicture.webviewPath"></ion-img>
+          </div>
+          <ion-button  style="text-transform:none" 
+                       size="small" 
+                       (click)="uploadPicture()" class="upload-pic">
+            <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
+            <div><span>{{ 'PROFILE.usePicture' | translate }}</span></div>
+          </ion-button>
+      </div>
+    </div>
+<!--show static photo if user just downloaded the app for the first time-->
+    <div *ngIf="idPicture==null" class="container">
+      <ion-item lines="none" class="profile-item">
+        <div class="profile-picture" (click)="takePicture()">
+          <ion-img [(src)]="lastPhoto"></ion-img>
+        </div>
+      </ion-item>
+    </div>
+
+    <!-- personal data -->
+    <div style="text-align: center;">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <ion-card-title class= "ion-padding-vertical profile-info">{{ 'PROFILE.personalData' | translate }}</ion-card-title>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">{{'PROFILE.lastname' | translate}}</ion-col>
+          <ion-col>{{ person.lastName }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">{{'PROFILE.firstname' | translate}}</ion-col>
+          <ion-col>{{ person.firstName }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">{{'PROFILE.email' | translate}}</ion-col>
+          <ion-col>{{ person.email }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6"   > {{'PROFILE.birthdate' | translate}}</ion-col>
+          <ion-col   >{{ person.birthdate }}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  
+  <ion-text *ngIf="!person" style="display: block; text-align: center; padding: 1em 0;">
+    {{ 'PROFILE.noPerson' | translate }}
+    <ion-text *ngIf="!loggedIn">{{ 'PROFILE.loggedOut' | translate }}</ion-text>
+  </ion-text>
+</ion-content>

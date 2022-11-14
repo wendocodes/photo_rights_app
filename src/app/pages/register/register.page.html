@@ -1,0 +1,182 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ 'REGISTER.form' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scrollY="true">
+  <ion-grid>
+    <ion-row class="ion-align-items-center ion-justify-content-center" style="height: 100%;">
+      <ion-col style="max-width: 500px">
+        
+        <h4 class="ion-text-center">{{ 'REGISTER.form' | translate }}</h4>
+
+        <form [formGroup]="regForm" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate padding>
+          <!-- username -->
+          <ion-item lines="none">
+            <ion-label position="floating" for="username">{{ 'AUTH.usernamePlaceholder' | translate }}<ion-text class="mark-required">*</ion-text></ion-label>
+
+            <ion-input 
+              type="text"
+              formControlName="uname"
+              [class.input-invalid]="f.submitted &&  (errors.usernameLength || errors.userAlreadyExists)">
+            </ion-input>
+          </ion-item>
+          <klix-form-error
+            [showOn]="regForm.controls.uname.touched && (errorCtrl.uname.errors?.minlength || errorCtrl.uname.errors?.maxlength)"
+            [message]="'AUTH.usernameLength' | translate">
+          </klix-form-error>
+          
+          <klix-form-error
+            [showOn]="(f.submitted || regForm.controls.uname.touched) && errorCtrl.uname.errors?.required"
+            [message]="'AUTH.usernameRequired' | translate">
+          </klix-form-error>
+          <klix-form-error [showOn]="f.submitted && errors.usernameLength" [message]="'AUTH.usernameLength' | translate"></klix-form-error>
+          <klix-form-error [showOn]="f.submitted && errors.userAlreadyExists" [message]="'ERROR.existingUser' | translate"></klix-form-error>
+
+          <!--password-->
+          <ion-item lines="none">
+            <ion-label position="floating" for="password">{{ 'AUTH.passwordPlaceholder' | translate }}<ion-text class="mark-required">*</ion-text></ion-label>
+
+            <klix-form-password
+              formControlName="upassword"
+              (click)="regForm.controls.upassword.markAsTouched()">
+            </klix-form-password>
+          </ion-item>
+          <klix-form-error
+            [showOn]="(regForm.controls.upassword.dirty || f.submitted) && errorCtrl.upassword.errors?.required"
+            [message]="'AUTH.passwordRequired' | translate">
+          </klix-form-error>
+          <klix-form-error
+            [showOn]="regForm.controls.upassword.touched && (errorCtrl.upassword.errors?.minlength || errorCtrl.upassword.errors?.maxlength)"
+            [message]="'AUTH.passwordLengthError' | translate">
+          </klix-form-error>
+          <klix-form-error
+            [showOn]="(regForm.controls.upassword.touched || f.submitted) && errorCtrl.upassword.errors?.uppercase"
+            [message]="'AUTH.passwordUpperError' | translate">
+          </klix-form-error>
+          <klix-form-error
+            [showOn]="(regForm.controls.upassword.touched || f.submitted) && errorCtrl.upassword.errors?.lowercase"
+            [message]="'AUTH.passwordLowerError' | translate">
+          </klix-form-error>
+          <klix-form-error
+            [showOn]="(regForm.controls.upassword.touched || f.submitted) && errorCtrl.upassword.errors?.digit"
+            [message]="'AUTH.passwordDigitError' | translate">
+          </klix-form-error>
+          <klix-form-error
+            [showOn]="(regForm.controls.upassword.touched || f.submitted) && errorCtrl.upassword.errors?.special"
+            [message]="'AUTH.passwordSpecialError' | translate">
+          </klix-form-error>
+
+          <!--repeat password-->
+          <ion-item lines="none">
+            <ion-label stacked position="floating" for="password-confirm">{{ 'AUTH.passwordRepeatPlaceholder' | translate }}<ion-text class="mark-required">*</ion-text></ion-label>
+            
+            <klix-form-password
+              formControlName="ucpassword">
+            </klix-form-password>
+          </ion-item>
+          <klix-form-error [showOn]="regForm.controls.ucpassword.touched && regForm.hasError('notSame')" [message]="'AUTH.passwordmismatch' | translate"></klix-form-error>
+          <klix-form-error
+            [showOn]="(regForm.controls.ucpassword.touched || f.submitted) && errorCtrl.ucpassword.errors?.required"
+            [message]="'AUTH.passwordRequired' | translate">
+          </klix-form-error>
+
+
+          <!-- PERSON DATA -->
+          <!--last name-->
+          <ion-item lines="none">
+            <ion-label position="floating" for="lastName">{{ 'AUTH.lastNamePlaceholder' | translate }}<ion-text class="mark-required">*</ion-text></ion-label>
+
+            <ion-input 
+              type="text" 
+              formControlName="lname">
+            </ion-input>
+          </ion-item>
+          <klix-form-error [showOn]="regForm.controls.lname.touched && errorCtrl.lname.errors?.pattern" [message]="'AUTH.invalidLastname' | translate"></klix-form-error>
+          <klix-form-error [showOn]="regForm.controls.lname.touched && errorCtrl.lname.errors?.maxlength" [message]="'AUTH.lastNameLength' | translate"></klix-form-error>
+          <klix-form-error
+            [showOn]="(regForm.controls.lname.touched || f.submitted) && errorCtrl.lname.errors?.required"
+            [message]="'AUTH.lastNameRequired' | translate">
+          </klix-form-error>
+
+          <!--first name-->
+          <ion-item lines="none">
+            <ion-label position="floating" for="firstName">{{ 'AUTH.firstNamePlaceholder' | translate }}<ion-text class="mark-required">*</ion-text></ion-label>
+
+            <ion-input 
+              type="text"
+              formControlName="fname">
+            </ion-input>
+          </ion-item>
+          <klix-form-error [showOn]="regForm.controls.fname.touched && errorCtrl.fname.errors?.pattern" [message]="'AUTH.invalidFirstname' | translate"></klix-form-error>
+          <klix-form-error [showOn]="regForm.controls.fname.touched && errorCtrl.fname.errors?.maxlength" [message]="'AUTH.firstNameLength' | translate"></klix-form-error>
+          <klix-form-error
+            [showOn]="(regForm.controls.fname.touched || f.submitted) && errorCtrl.fname.errors?.required"
+            [message]="'AUTH.firstNameRequired' | translate">
+          </klix-form-error>
+
+          <!--email-->
+          <ion-item lines="none">
+            <ion-label position="floating" for="email">{{ 'AUTH.emailPlaceholder' | translate }}<ion-text class="mark-required">*</ion-text></ion-label>
+
+            <ion-input 
+              type="text"
+              formControlName="email"
+              [class.invalid-input]="f.submitted && errors.emailValidity">
+            </ion-input>
+          </ion-item>
+          <klix-form-error
+            [showOn]="(regForm.controls.email.touched && errorCtrl.email.errors?.email) || (f.submitted && errors.emailValidity)"
+            [message]="'AUTH.invalidEmail' | translate">
+          </klix-form-error>
+          <klix-form-error
+            [showOn]="(regForm.controls.email.touched || f.submitted) && errorCtrl.email.errors?.required"
+            [message]="'AUTH.emailRequired' | translate">
+          </klix-form-error>
+          <klix-form-error [showOn]="" [message]="'AUTH.invalidEmail' | translate"></klix-form-error>
+
+           <!-- birthdate -->
+          <ion-item lines="none">
+            <ion-label position="stacked" for="birthdate">{{ 'AUTH.birthdatePlaceholder' | translate }}<ion-text class="mark-required">*</ion-text></ion-label>
+            <ion-input 
+              type="date"
+              formControlName="dob">
+            </ion-input>
+          </ion-item>
+          <klix-form-error
+            [showOn]="(regForm.controls.dob.touched || f.submitted) && errorCtrl.dob.errors?.required"
+            [message]="'AUTH.birthdateRequired' | translate">
+          </klix-form-error>
+
+          <!-- submit register form -->
+          <ion-button
+            [disabled]="f.status === 'INVALID'"
+            type="submit"
+            expand="block"
+            class="submit-btn"
+          >{{ 'REGISTER.register' | translate }}</ion-button>
+
+          <!-- errors -->
+          <klix-form-error [showOn]="errors.authFailed" [message]="'ERROR.authFailed' | translate"></klix-form-error>
+          <klix-form-error [showOn]="errors.unprocessableErrorServer" [message]="'ERROR.unprocessableEntityMsg' | translate"></klix-form-error>
+          <klix-form-error [showOn]="errors.serverError" [message]="'ERROR.serverUnreachable' | translate"></klix-form-error>
+          <klix-form-error [showOn]="errors.connectionTimeout" [message]="'ERROR.connectionTimeout' | translate"></klix-form-error>
+        </form>
+        <!-- have an account? Login -->
+        <ion-button
+          fill="clear"
+          expand="block"
+          color="primary"
+          class="ion-margin-top"
+          style="text-transform: none;"
+          [routerLink]="['/login']">
+          {{ 'REGISTER.login' | translate }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

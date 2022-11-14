@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ 'home' | translate }}</ion-title>
+    
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    
+    <ion-buttons slot="end" *ngIf="isValidUser">
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <main class="content">
+    <ion-img src="../assets/imgs/applogo.png" class="logo"></ion-img>
+    <h1 class="heading">{{'HOME.greeting' | translate }}</h1>
+
+    <ion-card class="network">
+      <h3>Status</h3>
+
+      <p>{{ 'HOME.networkstatus' | translate }}: {{ (status.connected ? 'HOME.connected' : 'HOME.disconnected') | translate }}</p>
+      <p *ngIf="status.connected">{{ 'HOME.networktype' | translate }}: {{ status.connectionType }}</p>
+      <p>{{ 'HOME.status' | translate }}: {{ (isValidUser ? 'HOME.loggedin' : 'HOME.invaliduser') | translate }}</p>
+    </ion-card>
+  </main>
+</ion-content>

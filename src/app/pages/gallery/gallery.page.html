@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{'gallery' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngIf="loggedIn && person">
+
+    <ion-item text-wrap>
+      <h4> {{'GALLERY.selectphoto' | translate }}</h4>
+
+      <!-- upload images -->
+      <ion-button slot="end" fill="clear" (click)="uploadPictures()">
+        <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
+      </ion-button>
+
+      <!-- delete images -->
+      <ion-button slot="end" fill="clear"  (click)="deleteImages()">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+   <!--display the gallery-->
+    <ion-item *ngFor="let photo of photos" text-wrap>
+      <ion-thumbnail slot="start">
+        <ion-img [src]="photo.webviewPath"></ion-img>
+      </ion-thumbnail>
+      <ion-label>{{photo.name}}</ion-label>
+
+      <!-- show status of image (sent, uploaded, uploadFailure) -->
+      <ion-icon *ngIf="photo.isSent && !photo.isUploaded && !photo.uploadFailed" slot="end" name="checkmark"></ion-icon>
+      <ion-icon *ngIf="photo.isUploaded" slot="end" name="checkmark-done"></ion-icon>
+      <ion-icon *ngIf="!photo.isUploaded && photo.uploadFailed" slot="end" name="close"></ion-icon>
+
+      <ion-checkbox slot="end" [(ngModel)]="photo.isChecked"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <ion-text *ngIf="!person" style="display: block; text-align: center; padding: 1em 0;">
+    {{ 'PROFILE.noPerson' | translate }}
+    <ion-text *ngIf="!loggedIn">{{ 'PROFILE.loggedOut' | translate }}</ion-text>
+  </ion-text>
+
+  <!--use the camera to take a photo and add it to the gallery-->
+  <ion-fab *ngIf="loggedIn && person" vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button (click)="takePicture()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ 'login' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-grid>
+  <ion-row class="ion-align-items-center ion-justify-content-center" style="height: 100%;">
+    <ion-col style="max-width: 500px">
+
+      <h4 class="ion-text-center">{{'LOGIN.form' | translate }}</h4>
+        
+      <form [formGroup]="loginForm" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate padding>
+
+        <!-- username -->
+        <ion-item lines="none">
+          <ion-label position="floating" for="username">{{ 'AUTH.usernamePlaceholder' | translate }}</ion-label>
+
+          <ion-input
+            type="text"
+            formControlName="username">
+          </ion-input>
+        </ion-item>
+          
+          <klix-form-error
+            [showOn]="(f.submitted || loginForm.controls.username.touched) && errorCtrl.username.errors?.required"
+            [message]="'AUTH.usernameRequired' | translate">
+          </klix-form-error>
+
+        <!-- password -->
+        <ion-item lines="none">
+          <ion-label position="floating" for="password">{{ 'AUTH.passwordPlaceholder' | translate }}</ion-label>
+
+          <klix-form-password
+            formControlName="password">
+          </klix-form-password>
+        </ion-item>
+        <klix-form-error
+          [showOn]="(loginForm.controls.password.touched || f.submitted) && errorCtrl.password.errors?.required"
+          [message]="'AUTH.passwordRequired' | translate">
+        </klix-form-error>
+        
+        <!-- submit-btn -->
+        <ion-button class="submit-btn" [disabled]="f.status === 'INVALID'" type="submit" expand="block">{{ 'LOGIN.signin' | translate }}</ion-button>
+      </form>
+
+      <!-- errors -->
+      <klix-form-error [showOn]="errors.authFailed" [message]="'ERROR.authFailed' | translate"></klix-form-error>
+      <klix-form-error [showOn]="errors.serverUnreachable" [message]="'ERROR.serverUnreachable' | translate"></klix-form-error>
+      <klix-form-error [showOn]="errors.wrongCredsFlag" [message]="'ERROR.invalidCredentials' | translate"></klix-form-error>
+
+     <!-- forgot password -->
+         <div padding style="text-align: center;">
+           <a style="text-decoration: none;" [routerLink]="['/forgot-password']">{{ 'AUTH.forgotpassword' | translate }}</a>
+
+           <br>
+
+      <!-- register link -->
+           <p>{{ 'LOGIN.noaccount' | translate }}<a style="text-decoration: none;"[routerLink]="['/register']">{{ 'LOGIN.account' | translate }}</a></p>
+        </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

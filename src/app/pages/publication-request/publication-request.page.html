@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ 'publicationRequests' | translate }}</ion-title> <!-- !TODO -->
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="loggedIn && person">
+
+   <!--display the gallery-->
+    <ion-item *ngFor="let p of pubRequests" text-wrap>
+      <ion-thumbnail slot="start">
+        <ion-img [src]="p.image"></ion-img> 
+      </ion-thumbnail>
+    <ion-label class="ion-text-wrap">{{p.text}}</ion-label>
+
+      <!-- approve or forbid usage -->
+      <ion-button (click)="allow(p.id)"  fill="clear" [color]="p.status == 2 ? 'medium' : 'success'">
+        <ion-icon slot="icon-only" name="thumbs-up"></ion-icon>
+      </ion-button>
+
+      <ion-button (click)="forbid(p.id)" fill="clear" [color]="p.status == 1 ? 'medium' : 'danger'">
+        <ion-icon slot="icon-only" name="thumbs-down"></ion-icon>
+      </ion-button>
+
+      <ion-spinner [hidden]="!p.sending"></ion-spinner>
+    </ion-item>
+  </ion-list>
+
+  
+  <ion-text *ngIf="loggedIn && person && !pubRequests.length" style="display: block; text-align: center; padding: 1em 0;">
+    {{ 'PUB_REQUEST.noRequest' | translate }}
+  </ion-text>
+
+  <ion-text *ngIf="!person" style="display: block; text-align: center; padding: 1em 0;">
+    {{ 'PROFILE.noPerson' | translate }}
+    <ion-text *ngIf="!loggedIn">{{ 'PROFILE.loggedOut' | translate }}</ion-text>
+  </ion-text>
+</ion-content>
