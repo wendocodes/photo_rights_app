@@ -1,0 +1,1 @@
+# photo_rights_app
